@@ -16,6 +16,7 @@ body {
   background-color: #2b2d42;
   font-size: 16px;
 }
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -49,6 +50,7 @@ body {
   transform: rotateY(180deg);
   display: inline-block;
 }
+
 .logo span:last-child {
   font-style: italic;
 }
@@ -82,6 +84,7 @@ body {
   box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.5);
   border-color: white;
 }
+
 .btn.download {
   background-color: teal;
   border-color: teal;
@@ -96,6 +99,7 @@ body {
   background-color: #000;
   flex-direction: column;
 }
+
 .box {
   width: 70%;
   height: 30vh;
@@ -105,11 +109,13 @@ body {
   position: relative;
   background: linear-gradient(0deg, #151621, transparent);
 }
+
 .box.content {
   height: 50vh;
   background: linear-gradient(180deg, #151621, transparent);
   /* border-radius: 50px; */
 }
+
 .gridItem {
   border: 5px solid #000;
   margin: 5px;
@@ -138,21 +144,38 @@ body {
   font-weight: bolder;
   color: #ef233c;
 }
+
 .gridItem.profile span {
   color: #000;
 }
+
+.content small {
+  color: #8b949e;
+  padding: 2px 8px;
+  border-radius: 50px;
+  text-transform: lowercase;
+  border: solid 1px #8b949e;
+}
+
 blockquote {
   font-size: 3.5rem;
   color: white;
-  font-family: "Noto Serif Display", serif;
+  font-family: 'Philosopher', sans-serif;
+  margin-bottom: 1rem;
   /* font-weight: bolder; */
 }
+
 figcaption {
   font-size: 1.2rem;
   font-style: italic;
   text-align: end;
   color: #d90429;
   font-weight: bold;
+}
+.tags {
+  display:inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 @media (max-width: 1000px) {

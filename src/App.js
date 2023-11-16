@@ -12,7 +12,7 @@ const colours = [colours1, colours2, colours3];
 
 export function fetchAPI(callback) {
   // param is a highlighted word from the user before it clicked the button
-  return fetch("https://api.quotable.io/quotes/random?maxLength=120").then(
+  return fetch("https://api.quotable.io/quotes/random?maxLength=100").then(
     callback
   );
 }
@@ -29,7 +29,8 @@ export default function App() {
   const [loading, setLoading] = useState();
   const [quote, setQuote] = useState({
     content: "Nobody said NOTHING!",
-    author: "Nobody"
+    author: "Nobody",
+    tags:new Array(5).fill('My new tag')
   });
   const downloadRef = useRef();
 
@@ -42,7 +43,7 @@ export default function App() {
     setColumnEnds(numbers.map(() => Math.floor(Math.random() * 20)));
     setEmoji(emojis[Math.floor(Math.random() * emojis.length)]);
     setLoading(true);
-    fetch("https://api.quotable.io/quotes/random")
+    fetch("https://api.quotable.io/quotes/random?maxLength=200")
       .then((result) => result.json())
       .then((x) => {
         setQuote(x[0]);
@@ -70,7 +71,7 @@ export default function App() {
         </span>
         <div className="btn-wrapper">
           <button className="btn generate" onClick={generate}>
-            Generate
+            Randomize
           </button>
           <button className="btn download" onClick={download}>
             Download
@@ -100,16 +101,17 @@ export default function App() {
             {emoji}
           </div>
         </div>
-        {quote && (
-          <div className="box content">
-            <figure>
-              <blockquote>
-                {loading ? <span class="loader"></span> : quote.content}
-              </blockquote>
-              {!loading && <figcaption>- {quote.author}</figcaption>}
-            </figure>
-          </div>
-        )}
+        <div className="box content">
+          {loading && (<span class="loader"></span>)}
+          {!loading && quote && (<figure>
+            <blockquote>
+              {quote.content}
+            </blockquote>
+            <figcaption>- {quote.author}</figcaption>
+            {/* <div className="tags">{quote.tags?.length && quote.tags?.map(x => <small>{x}</small>)}</div> */}
+          </figure>)}
+        </div>
+
       </div>
     </div>
   );
