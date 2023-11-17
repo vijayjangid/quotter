@@ -56,7 +56,7 @@ export default function App() {
     const targetEl = downloadRef.current;
     domtoimage.toJpeg(targetEl, { quality: 0.95 }).then((dataUrl) => {
       let link = document.createElement("a");
-      link.download = "profile banner.jpeg";
+      link.download = "quotter.jpeg";
       link.href = dataUrl;
       link.click();
     });
