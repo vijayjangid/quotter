@@ -10,13 +10,6 @@ const colours3 = ["#48cae4", "#8d99ae", "#edf2f4", "#fb6f92", "#ef233c"];
 const numbers = new Array(10).fill(1).map((_, index) => index);
 const colours = [colours1, colours2, colours3];
 
-export function fetchAPI(callback) {
-  // param is a highlighted word from the user before it clicked the button
-  return fetch("https://api.quotable.io/quotes/random?maxLength=100").then(
-    callback
-  );
-}
-
 export default function App() {
   const [colourPalette, setColourPalette] = useState(
     colours[Math.floor(Math.random() * colours.length)]
