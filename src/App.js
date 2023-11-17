@@ -74,7 +74,7 @@ export default function App() {
             Randomize
           </button>
           <button className="btn download" onClick={download}>
-            Sceenshot
+            Screenshot
           </button>
         </div>
       </header>
